@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://207016fd8k68"]
+
+[ext_resource type="Texture2D" uid="uid://ciy6hv3564klr" path="res://Assets/Keyboard_Button_Images/Normal/KeyboardTile.png" id="1_g1kye"]
+[ext_resource type="Texture2D" uid="uid://3bb6wdt2q25a" path="res://Assets/Keyboard_Button_Images/Hovered/KeyboardTileRightHovered.png" id="1_kj2ii"]
+[ext_resource type="Script" uid="uid://chib6fceus3d0" path="res://scripts/keyboard_button.gd" id="1_o6sjv"]
+[ext_resource type="Texture2D" uid="uid://ufvslr0embow" path="res://Assets/Keyboard_Button_Images/Normal/KeyboardTileRight.png" id="1_rjtdi"]
+[ext_resource type="Texture2D" uid="uid://csx0666rxcecw" path="res://Assets/Keyboard_Button_Images/Normal/KeyboardTileRightWrong.png" id="2_7gfav"]
+[ext_resource type="Texture2D" uid="uid://doa64gr3ii2qv" path="res://Assets/Keyboard_Button_Images/Hovered/KeyboardTileHovered.png" id="3_7gfav"]
+[ext_resource type="Texture2D" uid="uid://c7yf3cpkqfadq" path="res://Assets/Keyboard_Button_Images/Pressed/KeyboardTileRightPressed.png" id="3_t3qjx"]
+[ext_resource type="Texture2D" uid="uid://e07flm2plltn" path="res://Assets/Keyboard_Button_Images/Normal/KeyboardTileUsed.png" id="4_cax2b"]
+[ext_resource type="Texture2D" uid="uid://us5n1wjfcvcf" path="res://Assets/Keyboard_Button_Images/Hovered/KeyboardTileRightWrongHovered.png" id="4_xa7wd"]
+[ext_resource type="Texture2D" uid="uid://bdhrnpsj5vg0" path="res://Assets/Keyboard_Button_Images/Pressed/KeyboardTilePressed.png" id="5_cax2b"]
+[ext_resource type="Texture2D" uid="uid://ccyvoq2gj1cgc" path="res://Assets/Keyboard_Button_Images/Pressed/KeyboardTileRightWrongPressed.png" id="6_evync"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rjtdi"]
+texture = ExtResource("1_kj2ii")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2t6gv"]
+texture = ExtResource("1_rjtdi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g3nkn"]
+texture = ExtResource("3_t3qjx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gfav"]
+texture = ExtResource("4_xa7wd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ttqs"]
+texture = ExtResource("2_7gfav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2v5bw"]
+texture = ExtResource("6_evync")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cax2b"]
+texture = ExtResource("3_7gfav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1l1ab"]
+texture = ExtResource("1_g1kye")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3qjx"]
+texture = ExtResource("5_cax2b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kj2ii"]
+texture = ExtResource("4_cax2b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmxjr"]
+texture = ExtResource("4_cax2b")
+
+[sub_resource type="Theme" id="Theme_7gfav"]
+correct_right_placement/base_type = &"Button"
+correct_right_placement/styles/hover = SubResource("StyleBoxTexture_rjtdi")
+correct_right_placement/styles/normal = SubResource("StyleBoxTexture_2t6gv")
+correct_right_placement/styles/pressed = SubResource("StyleBoxTexture_g3nkn")
+correct_wrong_placement/base_type = &"Button"
+correct_wrong_placement/styles/hover = SubResource("StyleBoxTexture_7gfav")
+correct_wrong_placement/styles/normal = SubResource("StyleBoxTexture_2ttqs")
+correct_wrong_placement/styles/pressed = SubResource("StyleBoxTexture_2v5bw")
+letter_available/base_type = &"Button"
+letter_available/styles/hover = SubResource("StyleBoxTexture_cax2b")
+letter_available/styles/normal = SubResource("StyleBoxTexture_1l1ab")
+letter_available/styles/pressed = SubResource("StyleBoxTexture_t3qjx")
+used/base_type = &"Button"
+used/styles/hover = SubResource("StyleBoxTexture_kj2ii")
+used/styles/normal = SubResource("StyleBoxTexture_pmxjr")
+
+[node name="KeyboardButton" type="Button" unique_id=1680258922]
+custom_minimum_size = Vector2(86, 116)
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_7gfav")
+text = "A"
+script = ExtResource("1_o6sjv")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bfhonx02lly02"]
+
+[ext_resource type="Script" uid="uid://bpxdmp4sp06fn" path="res://scenes/results_ui.gd" id="1_iugs1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkr8k"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="InputEventKey" id="InputEventKey_iugs1"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_wkr8k"]
+device = -1
+keycode = 4194310
+
+[sub_resource type="InputEventKey" id="InputEventKey_vislc"]
+device = -1
+keycode = 4194446
+unicode = 56
+
+[sub_resource type="Shortcut" id="Shortcut_vislc"]
+events = [SubResource("InputEventKey_iugs1"), SubResource("InputEventKey_wkr8k"), SubResource("InputEventKey_vislc")]
+
+[node name="ResultsUI" type="ColorRect" unique_id=2013748070]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.31764707, 0.31764707, 0.31764707, 0.7921569)
+script = ExtResource("1_iugs1")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1649090760]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=419441903]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wkr8k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel" unique_id=93297456]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -62.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=588149506]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Word to guess:"
+
+[node name="WordLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=810866490]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.615686, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "KRAFT"
+
+[node name="ResultsLabel" type="Label" parent="CenterContainer/Panel/VBoxContainer" unique_id=981665328]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Du hast in 4 Zügen gewonnen!"
+
+[node name="Button" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=1087220504]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+shortcut = SubResource("Shortcut_vislc")
+text = "Play Again?"
+
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

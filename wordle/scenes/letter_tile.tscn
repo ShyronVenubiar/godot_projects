@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b0bdm5vb75mm8"]
+
+[ext_resource type="Theme" uid="uid://mle4kbe3e2vv" path="res://themes/letter_tile.theme" id="1_pbye1"]
+[ext_resource type="Script" uid="uid://bhtntakwdv6r6" path="res://scripts/letter_tile.gd" id="2_1gko5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pbye1"]
+load_path = "res://.godot/imported/glasstile.png-c9b52fff1e75077964acabe47524fd3a.ctex"
+
+[node name="LetterTile" type="Panel" unique_id=1318452628]
+custom_minimum_size = Vector2(80, 80)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_pbye1")
+script = ExtResource("2_1gko5")
+
+[node name="Label" type="Label" parent="." unique_id=1159505231]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.033853278, 0.033853278, 0.033853274, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 44
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Glasstile" type="Sprite2D" parent="." unique_id=823281937]
+visible = false
+modulate = Color(1, 1, 1, 0.35686275)
+position = Vector2(20.499996, 21.687498)
+scale = Vector2(0.3072626, 0.30314374)
+texture = SubResource("CompressedTexture2D_pbye1")

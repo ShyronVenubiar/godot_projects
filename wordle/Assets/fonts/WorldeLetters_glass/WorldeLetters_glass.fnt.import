@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://dtxr5225u68ru"
+path="res://.godot/imported/WorldeLetters_glass.fnt-290f88d2a8afeba904a48042d3e7982e.fontdata"
+
+[deps]
+
+source_file="res://Assets/fonts/WorldeLetters_glass/WorldeLetters_glass.fnt"
+dest_files=["res://.godot/imported/WorldeLetters_glass.fnt-290f88d2a8afeba904a48042d3e7982e.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

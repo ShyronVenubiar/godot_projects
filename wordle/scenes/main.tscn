@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b8wyrmbv7t03w"]
+
+[ext_resource type="PackedScene" uid="uid://dohn83eju4e0k" path="res://scenes/row.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://du88pg6pdv10g" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bm47s42w4jjem" path="res://scenes/keyboard.tscn" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://ccpkeeixhy305" path="res://scripts/word_pool.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bs15un3c7ldbq" path="res://scenes/validation_alert.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bfhonx02lly02" path="res://scenes/results_ui.tscn" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://by3w8uiwycxhc" path="res://Designer.png" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dgnul537umc0g" path="res://Designer (1).png" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://bi4lv1vxwof3h" path="res://glasstileborders.png" id="9_85g3d"]
+
+[node name="main" type="Node" unique_id=612843550]
+script = ExtResource("1_jyhfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1283944873]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1144719036]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=970295219]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=344734460]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=1320016099]
+layout_mode = 2
+
+[node name="Row" parent="MarginContainer/VBoxContainer/CenterContainer/Rows" unique_id=739207500 instance=ExtResource("1_0wfyh")]
+layout_mode = 2
+
+[node name="Row2" parent="MarginContainer/VBoxContainer/CenterContainer/Rows" unique_id=1618232467 instance=ExtResource("1_0wfyh")]
+layout_mode = 2
+
+[node name="Row3" parent="MarginContainer/VBoxContainer/CenterContainer/Rows" unique_id=2018744831 instance=ExtResource("1_0wfyh")]
+layout_mode = 2
+
+[node name="Row4" parent="MarginContainer/VBoxContainer/CenterContainer/Rows" unique_id=1275146068 instance=ExtResource("1_0wfyh")]
+layout_mode = 2
+
+[node name="Row5" parent="MarginContainer/VBoxContainer/CenterContainer/Rows" unique_id=1386431011 instance=ExtResource("1_0wfyh")]
+layout_mode = 2
+
+[node name="Glasstileborders" type="Sprite2D" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=1753745605]
+modulate = Color(0.6363989, 0.8985283, 0.36901003, 1)
+z_index = -1
+position = Vector2(108.5, 112)
+scale = Vector2(0.2939453, 0.30468753)
+texture = ExtResource("9_85g3d")
+
+[node name="Keyboard" parent="MarginContainer/VBoxContainer" unique_id=1134519513 instance=ExtResource("2_sugp2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WordPool" type="Node" parent="." unique_id=1699910751]
+script = ExtResource("3_sugp2")
+
+[node name="ValidationAlert" parent="." unique_id=1418512324 instance=ExtResource("5_tbgi4")]
+unique_name_in_owner = true
+
+[node name="ResultsUI" parent="." unique_id=1135258566 instance=ExtResource("6_tefeu")]
+unique_name_in_owner = true
+visible = false
+win_color = Color(1.54018e-05, 0.954853, 3.85046e-07, 1)
+lose_color = Color(0.780694, 4.54836e-06, 4.81307e-07, 1)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=212113679]
+modulate = Color(1, 1, 1, 0.5882353)
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(1.2447916, 1.0566406)
+texture = ExtResource("7_o6xl0")
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=1329572236]
+modulate = Color(1, 1, 1, 0.46666667)
+z_index = -1
+position = Vector2(961, 538)
+scale = Vector2(1.25, 1.0585938)
+texture = ExtResource("8_tipki")
+
+[connection signal="backspace_spressed" from="MarginContainer/VBoxContainer/Keyboard" to="." method="_on_keyboard_backspace_spressed"]
+[connection signal="enter_pressed" from="MarginContainer/VBoxContainer/Keyboard" to="." method="_on_keyboard_enter_pressed"]
+[connection signal="letter_pressed" from="MarginContainer/VBoxContainer/Keyboard" to="." method="_on_keyboard_letter_pressed"]
